@@ -1,0 +1,32 @@
+"""
+We have to open the csv and store it in a list or dict (lab 6)
+
+open txt
+
+count number of occurences of each STR in sequence.txt and store value in dict
+We need the longest consecutive str (multiply)
+
+
+compare how many occurences with the csv file
+
+"""
+
+def main():
+
+    # Ensure correct usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: dna.py FILENAME")
+        
+    small_dna = [] # all of the data read will be stored here
+    filename = sys.argv[1]  # name of the file 
+    with open(filename) as file: # open the file 
+        reader = csv.DictReader(file) # read as csv file as a dictionary
+        for row in reader: #loop through all the data and turn to ints
+        
+            name = row['name']
+            dna_AGATC = int(row['AGATC'])
+            dna_AATG = int(row['AATG'])
+            dna_TATC = int(row['TATC'])
+            small_dna.append({'name': name, 'AGATC': dna_AGATC, 'AATG': dna_AATG,'TATC':  dna_TATC})
+
+main()
