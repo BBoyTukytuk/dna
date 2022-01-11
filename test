@@ -21,12 +21,11 @@ def main():
     filename = sys.argv[1]  # name of the file 
     with open(filename) as file: # open the file 
         reader = csv.DictReader(file) # read as csv file as a dictionary
-        for row in reader: #loop through all the data and turn to ints
-        
-            name = row['name']
-            dna_AGATC = int(row['AGATC'])
+        for row in reader: #loop through all the data and turn to ints        
+            name = row['name'] # not an int
+            dna_AGATC = int(row['AGATC']) #convert to ints
             dna_AATG = int(row['AATG'])
             dna_TATC = int(row['TATC'])
-            small_dna.append({'name': name, 'AGATC': dna_AGATC, 'AATG': dna_AATG,'TATC':  dna_TATC})
+            small_dna.append({'name': name, 'AGATC': dna_AGATC, 'AATG': dna_AATG,'TATC':  dna_TATC}) #append to small_dna
 
 main()
